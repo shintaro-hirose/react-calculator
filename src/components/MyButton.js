@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
+import Button from '@material-ui/core/Button';
 
 export default function MyButton(props) {
   const useStyles = makeStyles((theme) => ({
@@ -14,9 +14,9 @@ export default function MyButton(props) {
 
   return (
       <div>
-        <Fab color="inherit" className={classes.margin} onClick={props.onClick}>
+        <Button className={classes.margin} onClick={props.onClick}>
             {props.children}
-        </Fab>
+        </Button>
       </div>
   );
 }

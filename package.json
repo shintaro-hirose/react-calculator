@@ -14,9 +14,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build docs",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,5 +35,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage":"https://shintaro-hirose.github.io/react-calculator/"
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  },
+  "homepage": "https://shintaro-hirose.github.io/react-calculator/"
 }

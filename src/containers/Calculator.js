@@ -204,64 +204,64 @@ function Calculator(){
                     <MyButton backgroundColor="gray" onClick={handlePercentageClick}>
                         <Typography variant="h5">%</Typography>
                     </MyButton>
-                    <MyButton backgroundColor="orange">
-                        <Typography variant="h5" onClick={() => handleOperatorClick("divide")}>÷</Typography>
+                    <MyButton backgroundColor="orange" onClick={() => handleOperatorClick("divide")}>
+                        <Typography variant="h5" >÷</Typography>
                     </MyButton>
                 </Box>
-                <Box display="flex" justifyContent="center">
-                    <MyButton onClick={() => handleNumberClick(7)}>
+                <Box display="flex" justifyContent="center" >
+                    <MyButton onClick={() => handleNumberClick(7)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">7</Typography>
                     </MyButton>
-                    <MyButton onClick={() => handleNumberClick(8)}>
+                    <MyButton onClick={() => handleNumberClick(8)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">8</Typography>
                     </MyButton>
-                    <MyButton onClick={() => handleNumberClick(9)}>
+                    <MyButton onClick={() => handleNumberClick(9)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">9</Typography>
                     </MyButton>
-                    <MyButton backgroundColor="orange">
-                        <Typography variant="h5" onClick={() => handleOperatorClick("multiply")}>×</Typography>
+                    <MyButton backgroundColor="orange" onClick={() => handleOperatorClick("multiply")}>
+                        <Typography variant="h5" >×</Typography>
                     </MyButton>
                 </Box>
                 <Box display="flex" justifyContent="center">
-                    <MyButton onClick={() => handleNumberClick(4)}>
+                    <MyButton onClick={() => handleNumberClick(4)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">4</Typography>
                     </MyButton>
-                    <MyButton onClick={() => handleNumberClick(5)}>
+                    <MyButton onClick={() => handleNumberClick(5)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">5</Typography>
                     </MyButton>
-                    <MyButton onClick={() => handleNumberClick(6)}>
+                    <MyButton onClick={() => handleNumberClick(6)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">6</Typography>
                     </MyButton>
-                    <MyButton backgroundColor="orange">
-                        <Typography variant="h5" onClick={() => handleOperatorClick("subtract")}>-</Typography>
+                    <MyButton backgroundColor="orange" onClick={() => handleOperatorClick("subtract")}>
+                        <Typography variant="h5" >-</Typography>
                     </MyButton>
                 </Box>
                 <Box display="flex" justifyContent="center">
-                    <MyButton onClick={() => handleNumberClick(1)}>
+                    <MyButton onClick={() => handleNumberClick(1)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">1</Typography>
                     </MyButton>
-                    <MyButton onClick={() => handleNumberClick(2)}>
+                    <MyButton onClick={() => handleNumberClick(2)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">2</Typography>
                     </MyButton>
-                    <MyButton onClick={() => handleNumberClick(3)}>
+                    <MyButton onClick={() => handleNumberClick(3)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">3</Typography>
                     </MyButton>
-                    <MyButton backgroundColor="orange">
-                        <Typography variant="h5" onClick={() => handleOperatorClick("add")}>+</Typography>
+                    <MyButton backgroundColor="orange" onClick={() => handleOperatorClick("add")}>
+                        <Typography variant="h5" >+</Typography>
                     </MyButton>
                 </Box>
                 <Box display="flex" justifyContent="center">
-                    <MyButton onClick={() => handleNumberClick(0)}>
+                    <MyButton onClick={() => handleNumberClick(0)} backgroundColor="#e0e0e0">
                         <Typography variant="h5">0</Typography>
                     </MyButton>
-                    <MyButton onClick={handleDoubleZeroClick}>
+                    <MyButton onClick={handleDoubleZeroClick} backgroundColor="#e0e0e0">
                         <Typography variant="h5">00</Typography>
                     </MyButton>
-                    <MyButton>
-                        <Typography variant="h5" onClick={handleDicimalPointClick}>.</Typography>
+                    <MyButton onClick={handleDicimalPointClick} backgroundColor="#e0e0e0">
+                        <Typography variant="h5" >.</Typography>
                     </MyButton>
-                    <MyButton backgroundColor="orange">
-                        <Typography variant="h5" onClick={handleAnswerClick}>=</Typography>
+                    <MyButton backgroundColor="orange" onClick={handleAnswerClick}>
+                        <Typography variant="h5" >=</Typography>
                     </MyButton>
                 </Box>
             </Box>
