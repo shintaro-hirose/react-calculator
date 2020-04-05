@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Display(props) {
   const classes = useStyles();
-
+  
   return (
       <div>
        <Box className={classes.box}>
