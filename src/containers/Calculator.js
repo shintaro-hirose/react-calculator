@@ -7,8 +7,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
 function Calculator(){
-    const [value1, setValue1] = useState("0");
-    const [value2, setValue2] = useState("0");
+    const [firstNumber, setFirstNumber] = useState("0");
+    const [secondNumber, setSecondNumber] = useState("0");
     const [operator, setOperator] = useState(false);
     const [isAllClear, setIsAllClear] = useState(true);
     const [isDicimalInput, setIsDicimalInput] = useState(false);
@@ -16,24 +16,24 @@ function Calculator(){
 
     const handleNumberClick = (num) => {
         if(isAnswerDisplay){
-            setValue1(num);
-            setValue2("0");
+            setFirstNumber(num);
+            setSecondNumber("0");
             setOperator(false);
             setIsAnswerDisplay(false);
             setIsDicimalInput(false);
         } else {
             if(!operator){
                 if(isDicimalInput){
-                    setValue1(String(value1) + String(num))
+                    setFirstNumber(String(firstNumber) + String(num));
                 } else {
-                    setValue1(String(Number(value1)*10+num));
+                    setFirstNumber(String(Number(firstNumber)*10+num));
                 }
                 
             } else {
                 if(isDicimalInput){
-                    setValue2(String(value2) + String(num))
+                    setSecondNumber(String(secondNumber) + String(num))
                 } else {
-                    setValue2(String(Number(value2)*10+num));
+                    setSecondNumber(String(Number(secondNumber)*10+num));
                 }
             }
         }
@@ -45,15 +45,15 @@ function Calculator(){
     const handleDoubleZeroClick = () => {
         if(!operator){
             if(isDicimalInput){
-                setValue1(String(value1) + "00")
+                setFirstNumber(String(firstNumber) + "00")
             } else {
-                setValue1(String(Number(value1)*100));
+                setFirstNumber(String(Number(firstNumber)*100));
             }
         } else {
             if(isDicimalInput){
-                setValue2(String(value2) + "00")
+                setSecondNumber(String(secondNumber) + "00")
             } else {
-                setValue2(String(Number(value2)*100));
+                setSecondNumber(String(Number(secondNumber)*100));
             }
         }
     }
@@ -61,18 +61,18 @@ function Calculator(){
     const handleClearClick = () => {
         setIsDicimalInput(false);
         if(isAllClear){
-            setValue1("0");
+            setFirstNumber("0");
             setOperator(false);
             setIsAnswerDisplay(false)
         } else {
             setIsAllClear(true);
             if(isAnswerDisplay){
-                setValue1("0")
+                setFirstNumber("0")
             } else{
                 if(!operator){
-                    setValue1("0");
+                    setFirstNumber("0");
                 } else {
-                    setValue2("0");
+                    setSecondNumber("0");
                 }
             }
         }
@@ -80,12 +80,12 @@ function Calculator(){
 
     const handleMinusPlusClick = () => {
         if(isAnswerDisplay){
-            setValue1(-1 * Number(value1));
+            setFirstNumber(-1 * Number(firstNumber));
         } else {
             if(!operator){
-                setValue1(-1 * Number(value1));
+                setFirstNumber(-1 * Number(firstNumber));
             } else {
-                setValue2(-1 * Number(value2));
+                setSecondNumber(-1 * Number(secondNumber));
             }
         }
         
@@ -93,12 +93,12 @@ function Calculator(){
 
     const handlePercentageClick = () => {
         if(isAnswerDisplay){
-            setValue1(Number(value1) * 0.01);
+            setFirstNumber(Number(firstNumber) * 0.01);
         } else {
             if(!operator){
-                setValue1(Number(value1) * 0.01);
+                setFirstNumber(Number(firstNumber) * 0.01);
             } else {
-                setValue2(Number(value2) * 0.01);
+                setSecondNumber(Number(secondNumber) * 0.01);
             }
         }
     }
@@ -107,21 +107,21 @@ function Calculator(){
         if(isAnswerDisplay){
             setIsAnswerDisplay(false);
         } else {
-            if(value2 !== "0"){
+            if(secondNumber !== "0"){
                 if(operator === "add"){
-                    setValue1(Number(value1) + Number(value2))
+                    setFirstNumber(Number(firstNumber) + Number(secondNumber));
                 } else if(operator === "subtract"){
-                    setValue1(Number(value1) - Number(value2))
+                    setFirstNumber(Number(firstNumber) - Number(secondNumber));
                 } else if(operator === "divide"){
-                    setValue1(Number(value1) / Number(value2))
+                    setFirstNumber(Number(firstNumber) / Number(secondNumber));
                 } else if(operator === "multiply"){
-                    setValue1(Number(value1) * Number(value2))
+                    setFirstNumber(Number(firstNumber) * Number(secondNumber));
                 }
             }
         }
         setIsDicimalInput(false);
         setOperator(a);
-        setValue2("0")
+        setSecondNumber("0");
     }
 
     const handleDicimalPointClick = () => {
@@ -129,9 +129,9 @@ function Calculator(){
 
         setIsDicimalInput(true);
         if(!operator){
-            setValue1(String(value1) + '.')
+            setFirstNumber(String(firstNumber) + '.');
         } else {
-            setValue2(String(value2) + '.')
+            setSecondNumber(String(secondNumber) + '.');
         }
     }
 
@@ -139,52 +139,47 @@ function Calculator(){
         setIsDicimalInput(false);
         setIsAnswerDisplay(true);
         if(operator === "add") {
-            if(value2 === "0"){
-                setValue2(value1)
-                setValue1(Number(value1) + Number(value1))
+            if(secondNumber === "0"){
+                setSecondNumber(firstNumber);
+                setFirstNumber(Number(firstNumber) + Number(firstNumber));
             } else {
-                setValue1(Number(value1) + Number(value2))
+                setFirstNumber(Number(firstNumber) + Number(secondNumber));
             }
         } else if(operator === "subtract") {
-            if(value2 === "0"){
-                setValue2(Number(value1))
-                setValue1(Number(value1) - Number(value1))
+            if(secondNumber === "0"){
+                setSecondNumber(Number(firstNumber));
+                setFirstNumber(Number(firstNumber) - Number(firstNumber));
             } else {
-                setValue1(Number(value1) - Number(value2))
+                setFirstNumber(Number(firstNumber) - Number(secondNumber));
             }
         } else if(operator === "divide") {
-            if(value2 === "0"){
-                setValue2(Number(value1))
-                setValue1(Number(value1) / Number(value1))
+            if(secondNumber === "0"){
+                setSecondNumber(Number(firstNumber));
+                setFirstNumber(Number(firstNumber) / Number(firstNumber));
             } else {
-                setValue1(Number(value1) / Number(value2))
+                setFirstNumber(Number(firstNumber) / Number(secondNumber));
             }
         } else if(operator === "multiply"){
-            if(value2 === "0"){
-                setValue2(Number(value1))
-                setValue1(Number(value1) * Number(value1))
+            if(secondNumber === "0"){
+                setSecondNumber(Number(firstNumber));
+                setFirstNumber(Number(firstNumber) * Number(firstNumber));
             } else {
-                setValue1(Number(value1) * Number(value2))
+                setFirstNumber(Number(firstNumber) * Number(secondNumber));
             }
         }
     }
 
+    const fixDigits = (num) => {
+        if((num) >= 10e8){
+            return num.toExponential(2);
+        } else {
+            return Math.round(num*1000000)/1000000;
+        }
+        return 0;
+    }
+    const displayMarkup = (!isAnswerDisplay && operator ) ? fixDigits(Number(secondNumber)) : fixDigits(Number(firstNumber));
+    const clearButtonMarkup = isAllClear ? "AC" : "C";
 
-    const displayMarkup = isAnswerDisplay ? (
-        value1
-    ) : (
-        operator ? (
-            value2
-        ) : (
-            value1
-        )
-    );
-
-    const clearButtonMarkup = isAllClear ? (
-        "AC"
-    ) : (
-        "C"
-    )
     return(
         <div>
             <Typography variant="h5">
